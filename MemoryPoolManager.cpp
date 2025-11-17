@@ -39,3 +39,10 @@ typename MemoryPoolManager<T>::Handle MemoryPoolManager<T>::acquire() {
     return Handle(ptr);
 }
 
+template<typename T>
+void MemoryPoolManager<T>::release(cogst T* ptr) {
+
+    this->free_list.push_back(ptr);
+
+    
+}
