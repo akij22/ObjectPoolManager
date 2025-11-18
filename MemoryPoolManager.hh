@@ -12,13 +12,14 @@ class MemoryPoolManager {
 
         // A vector containing multiple <T> pointers
         std::vector<T*> free_list;
-            public:
+    public:
 
         // Definition of a struct custom deleter for Handle
         struct PoolCustomDeleter {
 
             std::weak_ptr<MemoryPoolManager<T>> weak_ptr_pool;
             void operator()(T* ptr) {
+
     
                 if (!ptr) throw;
 
@@ -30,8 +31,10 @@ class MemoryPoolManager {
 
         };
 
+        // The "wrapper" for returning a T* into a std::unique_ptr through interface
         using Handle = std::unique_ptr<T, PoolCustomDeleter>;
 
+        
         MemoryPoolManager();
 
         MemoryPoolManager(size_type dim_block, size_type num_blocks);
@@ -45,13 +48,12 @@ class MemoryPoolManager {
         bool is_empty() const;
         
         
-        void release(T* ptr);
+        void release(const T* ptr);
 
         ~MemoryPoolManager();
 
 };
 
 
-template<typename T>
 
 

@@ -40,9 +40,9 @@ typename MemoryPoolManager<T>::Handle MemoryPoolManager<T>::acquire() {
 }
 
 template<typename T>
-void MemoryPoolManager<T>::release(cogst T* ptr) {
+void MemoryPoolManager<T>::release(const T* ptr) {
 
     this->free_list.push_back(ptr);
-
-    
+   
+    std::cout << "The resource is just released and push back into free-list!" << std::endl;
 }
