@@ -3,8 +3,7 @@
 
 using size_type = size_t;
 
-
-template<typename T>
+template <typename T>
 
 class MemoryPoolManager {
 
@@ -18,8 +17,8 @@ class MemoryPoolManager {
         struct PoolCustomDeleter {
 
             std::weak_ptr<MemoryPoolManager<T>> weak_ptr_pool;
+            
             void operator()(T* ptr) {
-
     
                 if (!ptr) throw;
 
@@ -47,7 +46,9 @@ class MemoryPoolManager {
 
         bool is_empty() const;
         
-        
+        size_type size() const;
+
+        size_type available() const;
         void release(const T* ptr);
 
         ~MemoryPoolManager();
