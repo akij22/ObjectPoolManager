@@ -1,6 +1,7 @@
 #ifndef MEMORY_POOL_MANAGER
 #define MEMORY_POOL_MANAGER
 
+#include <cassert>
 #include <cstddef>
 #include <iostream>
 #include <memory>
@@ -21,16 +22,21 @@ public:
   struct PoolCustomDeleter {
     std::weak_ptr<MemoryPoolManager<T>> weak_ptr_pool;
 
+    // When Handle become out-of-scope, the operator() is called
     void operator()(T *ptr) {
 
       if (!ptr)
         throw;
 
+      // If the pool is still alive, just call 'release' method that put the
+      // pointer into the free_list
       if (auto p = weak_ptr_pool.lock())
         p->release(ptr);
 
       else
-        delete p;
+
+        // If the pool does not exists yet, just delete the pointer
+        delete ptr;
     }
   };
 
@@ -52,7 +58,7 @@ public:
   size_type size() const;
 
   size_type available() const;
-  void release(const T *ptr);
+  void release(T *ptr);
 
   ~MemoryPoolManager();
 };
@@ -72,6 +78,7 @@ MemoryPoolManager<T>::MemoryPoolManager(size_type dim_block,
 
 template <typename T> MemoryPoolManager<T>::~MemoryPoolManager() {
 
+  std::cout << "Deleting the memory pool manager..." << std::endl;
   for (auto ptr : this->free_list)
     delete ptr;
 }
@@ -79,11 +86,7 @@ template <typename T> MemoryPoolManager<T>::~MemoryPoolManager() {
 template <typename T>
 typename MemoryPoolManager<T>::Handle MemoryPoolManager<T>::acquire() {
 
-  // Check if there is no resource to give by interface
-  if (this->is_empty())
-
-    // TEMP CODE: decide what to do if there is no resource available
-    throw;
+  assert(!this->is_empty());
 
   // Assign to `ptr` the last element of the free list
   T *ptr = this->free_list.back();
@@ -94,7 +97,12 @@ typename MemoryPoolManager<T>::Handle MemoryPoolManager<T>::acquire() {
   return Handle(ptr);
 }
 
-template <typename T> void MemoryPoolManager<T>::release(const T *ptr) {
+// The following function is called when the std::unique_ptr acquire by
+// the user become out-of-scope
+//
+// This metod must be used only by PoolCustomDeleter
+
+template <typename T> void MemoryPoolManager<T>::release(T *ptr) {
 
   this->free_list.push_back(ptr);
 
@@ -103,7 +111,7 @@ template <typename T> void MemoryPoolManager<T>::release(const T *ptr) {
 }
 
 template <typename T> bool MemoryPoolManager<T>::is_empty() const {
-  return this->free_list.is_empty();
+  return this->free_list.empty();
 }
 
 template <typename T> size_type MemoryPoolManager<T>::size() const {
