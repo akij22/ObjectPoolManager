@@ -11,7 +11,8 @@ using size_type = std::size_t;
 
 template <typename T>
 
-class MemoryPoolManager {
+class MemoryPoolManager
+    : public std::enable_shared_from_this<MemoryPoolManager<T>> {
 
 private:
   // A vector containing multiple <T> pointers
@@ -91,10 +92,20 @@ typename MemoryPoolManager<T>::Handle MemoryPoolManager<T>::acquire() {
   // Assign to `ptr` the last element of the free list
   T *ptr = this->free_list.back();
 
+  // Remove from the list with all blocks available the last one
   this->free_list.pop_back();
 
   // Return a pointer incapsulated into a `std::unique_ptr`
-  return Handle(ptr);
+
+  PoolCustomDeleter customD;
+
+  // shared_from_this = create a new shared_ptr that is linked to the same
+  // object of 'this'
+  // this shared pointer is memorize into a weak_ptr of the Deleter
+  customD.weak_ptr_pool = this->shared_from_this();
+
+  // Return a new Handle with the ptr wrapped and a new custom deleter
+  return Handle(ptr, customD);
 }
 
 // The following function is called when the std::unique_ptr acquire by
