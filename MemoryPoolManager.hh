@@ -95,13 +95,15 @@ typename MemoryPoolManager<T>::Handle MemoryPoolManager<T>::acquire() {
   // Remove from the list with all blocks available the last one
   this->free_list.pop_back();
 
-  // Return a pointer incapsulated into a `std::unique_ptr`
-
+  // Create a new CustomDeleter for each resource given by `.acuire()`
+  // Every new resource must have a own custom deleter with
   PoolCustomDeleter customD;
 
   // shared_from_this = create a new shared_ptr that is linked to the same
   // object of 'this'
   // this shared pointer is memorize into a weak_ptr of the Deleter
+  // The `shared_from_this()` return a shared_ptr() that points to the same
+  // object pointed by `this`
   customD.weak_ptr_pool = this->shared_from_this();
 
   // Return a new Handle with the ptr wrapped and a new custom deleter
