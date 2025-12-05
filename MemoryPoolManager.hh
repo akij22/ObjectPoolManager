@@ -31,13 +31,20 @@ public:
 
       // If the pool is still alive, just call 'release' method that put the
       // pointer into the free_list
-      if (auto p = weak_ptr_pool.lock())
+      if (auto p = weak_ptr_pool.lock()) {
+
+        // Calling the deconstructor for the specific obj
+        ptr->~T();
         p->release(ptr);
+
+      }
 
       else
 
-        // If the pool does not exists yet, just delete the pointer
-        delete ptr;
+        // Delete the pointer to the array
+        // The MemoryPoolManager does not exists, because `.lock()` returns
+        // nullptr
+        delete[] ptr;
     }
   };
 
@@ -68,8 +75,15 @@ template <typename T>
 MemoryPoolManager<T>::MemoryPoolManager(size_type dim_block,
                                         size_type num_blocks) {
 
+  // Assertion about the two constructor parameters
+  assert(dim_block > 0);
+  assert(num_blocks >= 0);
+
   for (size_type i = 0; i < num_blocks; i++) {
     T *ptr = new T[dim_block];
+
+    // For debugging
+    std::cout << "Pointer address: " << ptr << std::endl;
 
     this->free_list.push_back(ptr);
   }
@@ -81,7 +95,7 @@ template <typename T> MemoryPoolManager<T>::~MemoryPoolManager() {
 
   std::cout << "Deleting the memory pool manager..." << std::endl;
   for (auto ptr : this->free_list)
-    delete ptr;
+    delete[] ptr;
 }
 
 template <typename T>
