@@ -49,7 +49,7 @@ public:
   };
 
   // The "wrapper" for returning a T* into a std::unique_ptr through interface
-  using Handle = std::unique_ptr<T, PoolCustomDeleter>;
+  using Handle = std::unique_ptr<T[], PoolCustomDeleter>;
 
   MemoryPoolManager();
 
@@ -65,7 +65,6 @@ public:
 
   size_type size() const;
 
-  size_type available() const;
   void release(T *ptr);
 
   ~MemoryPoolManager();
@@ -143,11 +142,6 @@ template <typename T> bool MemoryPoolManager<T>::is_empty() const {
 
 template <typename T> size_type MemoryPoolManager<T>::size() const {
   return this->free_list.size();
-}
-
-// Return the number of blocks available for acquiring
-template <typename T> size_type MemoryPoolManager<T>::available() const {
-  return this->free_list.capacity() - this->free_list.size();
 }
 
 #endif

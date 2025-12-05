@@ -32,6 +32,8 @@ int main() {
 
     std::cout << "Address unique ptr " << h << std::endl;
 
+    std::cout << "Size: " << mp1->size() << std::endl;
+
   } // the deleter must be called
 
   return 0;
