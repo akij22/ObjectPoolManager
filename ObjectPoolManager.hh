@@ -13,6 +13,8 @@
 #include <cstddef>
 #include <iostream>
 #include <memory>
+#include <stdexcept>
+#include <unordered_set>
 #include <vector>
 
 using size_type = std::size_t;
@@ -26,6 +28,9 @@ private:
   // A vector containing multiple <T> pointers (multiple <T  objects)
   std::vector<T *> free_list;
 
+  std::unordered_set<T *> pool_pointers;
+
+  // return a T raw pointer for creating object into memory already allocated
   T *acquire_raw() {
 
     T *ptr = this->free_list.back();
@@ -52,7 +57,6 @@ public:
 
         // Calling the deconstructor for the specific obj
         p->release(ptr);
-
       }
 
       else
@@ -83,16 +87,20 @@ public:
 
   void release(T *ptr);
 
-  template <typename... Args> Handle construct(Args &&...args) {
+  // The `.construct` method take n parameters
+  template <typename... Args> Handle construct(Args... args) {
 
     T *ptr = this->acquire_raw();
 
-    ::new (ptr) T(args...);
+    // Build the object in the ptr memeory location (placement new)
+    // We have the access to this new object created through ptr pointer
+    new (ptr) T(args...);
 
     PoolCustomDeleter customD;
 
     customD.weak_ptr_pool = this->shared_from_this();
 
+    // Build a Handle with the pointer to the new object and the custom deleter
     return Handle(ptr, customD);
   }
   ~ObjectPoolManager();
@@ -105,7 +113,14 @@ ObjectPoolManager<T>::ObjectPoolManager(size_type num_blocks) {
   assert(num_blocks >= 0);
 
   for (size_type i = 0; i < num_blocks; i++) {
-    T *ptr = new T();
+
+    // Allocating new raw memory without building any obect
+    void *ptr_raw = ::operator new(sizeof(T), std::align_val_t(alignof(T)));
+
+    // Casting from raw memory pointer to T* ptr
+    T *ptr = static_cast<T *>(ptr_raw);
+
+    this->pool_pointers.insert(ptr);
 
     // For debugging
     std::cout << "Pointer address: " << ptr << std::endl;
@@ -138,15 +153,17 @@ typename ObjectPoolManager<T>::Handle ObjectPoolManager<T>::acquire() {
   // Every new resource must have a own custom deleter with
   PoolCustomDeleter customD;
 
-  // shared_from_this = create a new shared_ptr that is linked to the same
-  // object of 'this'
-  // this shared pointer is memorize into a weak_ptr of the Deleter
-  // The `shared_from_this()` return a shared_ptr() that points to the same
-  // object pointed by `this`
-  customD.weak_ptr_pool = this->shared_from_this();
+  /* shared_from_this = create a new shared_ptr that is linked to the same
+   *  object of 'this'
+   * this shared pointer is memorize into a weak_ptr of the Deleter
+   * The `shared_from_this()` return a shared_ptr() that points to the same
+   * object pointed by `this`
+   customD.weak_ptr_pool = this->shared_from_this();
 
-  // Return a new Handle with the ptr wrapped and a new custom deleter
-  return Handle(ptr, customD);
+   Return a new Handle with the ptr wrapped and a new custom deleter
+   return Handle(ptr, customD);
+
+  */
 }
 
 // The following function is called when the std::unique_ptr acquire by
@@ -155,6 +172,11 @@ typename ObjectPoolManager<T>::Handle ObjectPoolManager<T>::acquire() {
 // This metod must be used only by PoolCustomDeleter
 
 template <typename T> void ObjectPoolManager<T>::release(T *ptr) {
+
+  // TODO: handle the case when the ptr parameter is not part of the object pool
+  if (this->pool_pointers.find(ptr) == this->pool_pointers.end())
+    throw std::invalid_argument(
+        "The pointer does not belong to the object pool");
 
   this->free_list.push_back(ptr);
 

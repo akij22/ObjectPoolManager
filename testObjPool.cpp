@@ -9,13 +9,10 @@ struct Person {
   int age;
 
   // Constructor
+
+  Person() : name("Default"), age(100) {}
   Person(std::string init_name, int init_age)
       : name(init_name), age(init_age) {}
-
-  Person() {
-    name = "";
-    age = 0;
-  }
 
   ~Person() { std::cout << "Deleting Person obj" << std::endl; }
 };
@@ -27,7 +24,7 @@ int main() {
   // Define a scope for `h` to test the `.release()` method
   {
 
-    // `h` is now a unique_ptr to int object
+    // Test `.constuct` method
     auto h = mp1->construct("Checking...",
                             22); // requiring a block and save it into `h`
 
@@ -44,6 +41,9 @@ int main() {
     std::cout << "Size of the object pool: " << mp1->size() << std::endl;
 
   } // the deleter must be called
+
+  Person *checkThrow = new Person("check1", 100);
+  mp1->release(checkThrow);
 
   std::cout << "Size of the object pool after release: " << mp1->size()
             << std::endl;
