@@ -93,7 +93,7 @@ public:
   // The raw pointer is also removed from the free-list
   // Handle acquire();
 
-  bool is_empty() const;
+  bool exhausted() const;
 
   size_type size() const;
 
@@ -148,15 +148,13 @@ ObjectPoolManager<T>::ObjectPoolManager(size_type num_blocks) {
   stats.totalBlocks = num_blocks;
   stats.freeBlocks = num_blocks;
   stats.allocationCount = num_blocks;
-  std::cout << "Allocated " << stats.totalBlocks << " blocks" << std::endl;
+  std::cout << "DEBUG: Allocated " << stats.totalBlocks << " blocks"
+            << std::endl;
 }
 
 template <typename T> ObjectPoolManager<T>::~ObjectPoolManager() {
 
-  // Destroy all object still alive
-  //
   // TODO Check what pointers are inside pool_pointers
-  // There must be only build pointers
 
   for (T *elem : this->free_list) {
 
@@ -166,6 +164,8 @@ template <typename T> ObjectPoolManager<T>::~ObjectPoolManager() {
               << elem << std::endl;
 
     ::operator delete(elem, std::align_val_t(alignof(T)));
+
+    ++stats.deallocationCount;
   }
 }
 
@@ -218,7 +218,9 @@ template <typename T> void ObjectPoolManager<T>::release(T *ptr) {
   ++stats.freeBlocks;
 }
 
-template <typename T> bool ObjectPoolManager<T>::is_empty() const {
+template <typename T> bool ObjectPoolManager<T>::exhausted() const {
+
+  // Return true if there are no more slot available
   return this->free_list.empty();
 }
 

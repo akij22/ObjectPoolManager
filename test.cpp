@@ -23,7 +23,6 @@ int main() {
   {
     auto h = mp1->acquire(); // requiring a block and save it into `h`
 
-    // TODO Implement constuct() method for avoiding this
     int *ptr1 = new (h.get()) int(20);
 
     std::cout << *ptr1 << std::endl;

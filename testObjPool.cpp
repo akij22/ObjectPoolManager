@@ -26,21 +26,37 @@ int main() {
   // Define a scope for `h` to test the `.release()` method
   {
 
+    std::cout << mp1->size() << std::endl;
+
     // Test `.constuct` method
     auto h = mp1->construct("Checking...",
                             22); // requiring a block and save it into `h`
+    auto h2 = mp1->construct("2", 2);
 
-    // TODO Implement constuct() method for avoiding this
-    //
-    // In this case we are allocating into `h.get()` memory the ptr1 pointer
+    auto h3 = mp1->construct("2", 2);
 
-    // Person *person = mp1->construct("Name", age);
+    auto h4 = mp1->construct("2", 2);
 
-    std::cout << "Value of the object: " << h->name << std::endl;
+    auto h5 = mp1->construct("2", 2);
 
-    std::cout << "Address of wrapped ptr: " << h.get() << std::endl;
+    auto h6 = mp1->construct("2", 2);
 
-    std::cout << "Size of the object pool: " << mp1->size() << std::endl;
+    auto h7 = mp1->construct("2", 2);
+
+    auto h8 = mp1->construct("2", 2);
+
+    auto h9 = mp1->construct("2", 2);
+
+    auto h10 = mp1->construct("2", 2);
+
+    std::cout << mp1->exhausted() << std::endl;
+
+    std::cout << mp1->size() << std::endl;
+
+    // TODO write `expand` method for expanding the size of free_list
+    auto h11 = mp1->construct("2", 2);
+
+    std::cout << mp1->size() << std::endl;
 
   } // the deleter must be called
 
