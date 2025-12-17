@@ -19,6 +19,15 @@
 
 using size_type = std::size_t;
 
+struct Stats {
+
+  size_type totalBlocks;
+  size_type usedBlocks;
+  size_type freeBlocks;
+  size_type allocationCount;
+  size_type deallocationCount;
+};
+
 template <typename T>
 
 class ObjectPoolManager
@@ -29,6 +38,7 @@ private:
   std::vector<T *> free_list;
 
   std::unordered_set<T *> pool_pointers;
+  Stats stats;
 
   // return a T raw pointer for creating object into memory already allocated
   T *acquire_raw() {
@@ -51,6 +61,9 @@ public:
       if (!ptr)
         throw;
 
+      // Delete the object build with `.construct()` during acquiring
+      ptr->~T();
+
       // If the pool is still alive, just call 'release' method that put the
       // pointer into the free_list
       if (auto p = weak_ptr_pool.lock()) {
@@ -61,10 +74,8 @@ public:
 
       else
 
-        // Delete the pointer to the array
-        // The MemoryPoolManager does not exists, because `.lock()` returns
-        // nullptr
-        delete ptr;
+        // If the object pool is not alive yet, also delete the raw memory
+        ::operator delete(ptr, std::align_val_t(alignof(T)));
     }
   };
 
@@ -72,6 +83,7 @@ public:
   using Handle = std::unique_ptr<T, PoolCustomDeleter>;
 
   ObjectPoolManager();
+  ~ObjectPoolManager();
 
   ObjectPoolManager(size_type num_blocks);
 
@@ -79,7 +91,7 @@ public:
   // and return a `std::unique_ptr` where it incapsulate the raw pointer
   //
   // The raw pointer is also removed from the free-list
-  Handle acquire();
+  // Handle acquire();
 
   bool is_empty() const;
 
@@ -100,10 +112,14 @@ public:
 
     customD.weak_ptr_pool = this->shared_from_this();
 
+    std::cout << "DEBUG: Returning pointer with address: " << ptr << std::endl;
+    // Update stats
+    --stats.freeBlocks;
+    ++stats.usedBlocks;
+
     // Build a Handle with the pointer to the new object and the custom deleter
     return Handle(ptr, customD);
   }
-  ~ObjectPoolManager();
 };
 
 template <typename T>
@@ -128,44 +144,59 @@ ObjectPoolManager<T>::ObjectPoolManager(size_type num_blocks) {
     this->free_list.push_back(ptr);
   }
 
-  std::cout << "Allocated " << num_blocks << " blocks" << std::endl;
+  // Initialization of stats
+  stats.totalBlocks = num_blocks;
+  stats.freeBlocks = num_blocks;
+  stats.allocationCount = num_blocks;
+  std::cout << "Allocated " << stats.totalBlocks << " blocks" << std::endl;
 }
 
 template <typename T> ObjectPoolManager<T>::~ObjectPoolManager() {
 
-  std::cout << "Deleting the memory pool manager..." << std::endl;
-  for (auto ptr : this->free_list)
-    delete ptr;
+  // Destroy all object still alive
+  //
+  // TODO Check what pointers are inside pool_pointers
+  // There must be only build pointers
+
+  for (T *elem : this->free_list) {
+
+    // Delete manually the raw memory
+
+    std::cout << "DEBUG(DECONSTRUCTOR), deleting pointer to raw memory: "
+              << elem << std::endl;
+
+    ::operator delete(elem, std::align_val_t(alignof(T)));
+  }
 }
 
-template <typename T>
-typename ObjectPoolManager<T>::Handle ObjectPoolManager<T>::acquire() {
-
-  assert(!this->is_empty());
-
-  // Assign to `ptr` the last element of the free list
-  T *ptr = this->free_list.back();
-
-  // Remove from the list with all blocks available the last one
-  this->free_list.pop_back();
-
-  // Create a new CustomDeleter for each resource given by `.acuire()`
-  // Every new resource must have a own custom deleter with
-  PoolCustomDeleter customD;
-
-  /* shared_from_this = create a new shared_ptr that is linked to the same
-   *  object of 'this'
-   * this shared pointer is memorize into a weak_ptr of the Deleter
-   * The `shared_from_this()` return a shared_ptr() that points to the same
-   * object pointed by `this`
-   customD.weak_ptr_pool = this->shared_from_this();
-
-   Return a new Handle with the ptr wrapped and a new custom deleter
-   return Handle(ptr, customD);
-
-  */
-}
-
+// template <typename T>
+// typename ObjectPoolManager<T>::Handle ObjectPoolManager<T>::acquire() {
+//
+//   assert(!this->is_empty());
+//
+//   // Assign to `ptr` the last element of the free list
+//   T *ptr = this->free_list.back();
+//
+//   // Remove from the list with all blocks available the last one
+//   this->free_list.pop_back();
+//
+//   // Create a new CustomDeleter for each resource given by `.acquire()`
+//   // Every new resource must have a own custom deleter with
+//   PoolCustomDeleter customD;
+//
+//   /* shared_from_this = create a new shared_ptr that is linked to the same
+//    *  object of 'this'
+//    * this shared pointer is memorize into a weak_ptr of the Deleter
+//    * The `shared_from_this()` return a shared_ptr() that points to the same
+//    * object pointed by `this`
+//    customD.weak_ptr_pool = this->shared_from_this();
+//
+//    Return a new Handle with the ptr wrapped and a new custom deleter
+//    return Handle(ptr, customD);
+//
+//   */
+// }
+//
 // The following function is called when the std::unique_ptr acquire by
 // the user become out-of-scope
 //
@@ -173,7 +204,7 @@ typename ObjectPoolManager<T>::Handle ObjectPoolManager<T>::acquire() {
 
 template <typename T> void ObjectPoolManager<T>::release(T *ptr) {
 
-  // TODO: handle the case when the ptr parameter is not part of the object pool
+  // If the ptr parameter is not found into pool_pointers
   if (this->pool_pointers.find(ptr) == this->pool_pointers.end())
     throw std::invalid_argument(
         "The pointer does not belong to the object pool");
@@ -182,6 +213,9 @@ template <typename T> void ObjectPoolManager<T>::release(T *ptr) {
 
   std::cout << "The resource is just released and push back into free-list!"
             << std::endl;
+
+  --stats.usedBlocks;
+  ++stats.freeBlocks;
 }
 
 template <typename T> bool ObjectPoolManager<T>::is_empty() const {

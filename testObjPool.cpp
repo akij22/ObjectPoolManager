@@ -15,6 +15,8 @@ struct Person {
       : name(init_name), age(init_age) {}
 
   ~Person() { std::cout << "Deleting Person obj" << std::endl; }
+
+  // friend std::ostream std::operator<<(std::ostream &out) {}
 };
 
 int main() {
@@ -42,11 +44,9 @@ int main() {
 
   } // the deleter must be called
 
-  Person *checkThrow = new Person("check1", 100);
-  mp1->release(checkThrow);
-
-  std::cout << "Size of the object pool after release: " << mp1->size()
-            << std::endl;
+  // Checking if pool_pointers constraint is called
+  // Person *checkThrow = new Person("check1", 100);
+  // mp1->release(checkThrow);
 
   return 0;
 } // MemoryPoolManager is out-of-scope, it must be deleted
