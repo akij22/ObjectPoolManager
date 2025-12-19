@@ -59,7 +59,8 @@ public:
     void operator()(T *ptr) {
 
       if (!ptr)
-        throw;
+        // Just return, to avoid calling an exception into another exception
+        return;
 
       // Delete the object build with `.construct()` during acquiring
       ptr->~T();
@@ -97,10 +98,16 @@ public:
 
   size_type size() const;
 
+  void expand(size_type dim = 0);
+
   void release(T *ptr);
 
   // The `.construct` method take n parameters
   template <typename... Args> Handle construct(Args... args) {
+
+    // Expand the object pool if there is no size available
+    if (this->size() == 0)
+      this->expand();
 
     T *ptr = this->acquire_raw();
 
@@ -121,6 +128,29 @@ public:
     return Handle(ptr, customD);
   }
 };
+
+template <typename T> ObjectPoolManager<T>::ObjectPoolManager() {
+
+  for (size_type i = 0; i < 2; i++) {
+
+    // Allocating new raw memory without building any obect
+    void *ptr_raw = ::operator new(sizeof(T), std::align_val_t(alignof(T)));
+
+    // Casting from raw memory pointer to T* ptr
+    T *ptr = static_cast<T *>(ptr_raw);
+
+    this->pool_pointers.insert(ptr);
+
+    this->free_list.push_back(ptr);
+  }
+
+  // Initialization of stats
+  stats.totalBlocks = 2;
+  stats.freeBlocks = 2;
+  stats.allocationCount = 2;
+  stats.deallocationCount = 0;
+  stats.usedBlocks = 0;
+}
 
 template <typename T>
 ObjectPoolManager<T>::ObjectPoolManager(size_type num_blocks) {
@@ -148,6 +178,9 @@ ObjectPoolManager<T>::ObjectPoolManager(size_type num_blocks) {
   stats.totalBlocks = num_blocks;
   stats.freeBlocks = num_blocks;
   stats.allocationCount = num_blocks;
+  stats.deallocationCount = 0;
+  stats.usedBlocks = 0;
+
   std::cout << "DEBUG: Allocated " << stats.totalBlocks << " blocks"
             << std::endl;
 }
@@ -209,6 +242,8 @@ template <typename T> void ObjectPoolManager<T>::release(T *ptr) {
     throw std::invalid_argument(
         "The pointer does not belong to the object pool");
 
+  // The pointer is already pointing to raw memory, thanks to deconstruct
+  // calling in `operator()`
   this->free_list.push_back(ptr);
 
   std::cout << "The resource is just released and push back into free-list!"
@@ -226,6 +261,33 @@ template <typename T> bool ObjectPoolManager<T>::exhausted() const {
 
 template <typename T> size_type ObjectPoolManager<T>::size() const {
   return this->free_list.size();
+}
+
+template <typename T> void ObjectPoolManager<T>::expand(size_type dim) {
+
+  // Expand the free_list with totalBlocks * 2
+  if (dim == 0)
+    dim = stats.freeBlocks * 2;
+
+  std::cout << "DEBUG: before expand: " << stats.freeBlocks << std::endl;
+  for (size_type i = 0; i < dim; i++) {
+
+    // Allocating new raw memory without building any obect
+    void *ptr_raw = ::operator new(sizeof(T), std::align_val_t(alignof(T)));
+
+    // Casting from raw memory pointer to T* ptr
+    T *ptr = static_cast<T *>(ptr_raw);
+
+    this->pool_pointers.insert(ptr);
+
+    this->free_list.push_back(ptr);
+  }
+
+  stats.totalBlocks = dim;
+
+  stats.freeBlocks = stats.totalBlocks - stats.usedBlocks;
+
+  std::cout << "DEBUG: after expand: " << stats.freeBlocks << std::endl;
 }
 
 #endif

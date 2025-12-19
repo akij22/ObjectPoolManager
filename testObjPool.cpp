@@ -1,68 +1,128 @@
 #include "ObjectPoolManager.hh"
+
+#include <cassert>
 #include <iostream>
 #include <memory>
 #include <string>
+#include <utility>
+#include <vector>
 
-// FOR TESTING
-struct Person {
+/*
+Improvements to consider for ObjectPoolManager:
+1. Provide a definition for the default constructor or remove its declaration.
+2. Initialize every member of Stats (usedBlocks, freeBlocks, allocationCount,
+   deallocationCount) at construction to avoid undefined reads.
+3. Avoid throwing from PoolCustomDeleter when ptr is nullptr to prevent
+   terminate during stack unwinding; just return early instead.
+4. Ensure the destructor reclaims raw memory for blocks that are still checked
+   out when the pool is destroyed to prevent leaks.
+5. Keep release() private (or guard double releases) so callers cannot push the
+   same pointer multiple times or bypass the handle semantics.
+6. Keep stats/allocationCount consistent inside expand() and consider making
+   the growth factor configurable for large T types.
+*/
+
+struct TrackingPerson {
+  static int constructions;
+  static int destructions;
+
   std::string name;
   int age;
 
-  // Constructor
+  TrackingPerson(std::string init_name = "Default", int init_age = 0)
+      : name(std::move(init_name)), age(init_age) {
+    ++constructions;
+  }
 
-  Person() : name("Default"), age(100) {}
-  Person(std::string init_name, int init_age)
-      : name(init_name), age(init_age) {}
-
-  ~Person() { std::cout << "Deleting Person obj" << std::endl; }
-
-  // friend std::ostream std::operator<<(std::ostream &out) {}
+  ~TrackingPerson() { ++destructions; }
 };
 
-int main() {
+int TrackingPerson::constructions = 0;
+int TrackingPerson::destructions = 0;
 
-  auto mp1 = std::make_shared<ObjectPoolManager<Person>>(10);
+void reset_tracking() {
+  TrackingPerson::constructions = 0;
+  TrackingPerson::destructions = 0;
+}
 
-  // Define a scope for `h` to test the `.release()` method
+void test_basic_acquire_and_release() {
+  reset_tracking();
+  auto pool = std::make_shared<ObjectPoolManager<TrackingPerson>>(2);
+
   {
+    auto first = pool->construct("Alice", 30);
+    auto second = pool->construct("Bob", 40);
 
-    std::cout << mp1->size() << std::endl;
+    assert(first->name == "Alice");
+    assert(second->age == 40);
+    assert(pool->exhausted());
+    assert(pool->size() == 0);
+  }
 
-    // Test `.constuct` method
-    auto h = mp1->construct("Checking...",
-                            22); // requiring a block and save it into `h`
-    auto h2 = mp1->construct("2", 2);
+  assert(pool->size() == 2);
+  assert(!pool->exhausted());
+  assert(TrackingPerson::constructions == TrackingPerson::destructions);
+}
 
-    auto h3 = mp1->construct("2", 2);
+void test_expand_on_demand() {
+  reset_tracking();
+  auto pool = std::make_shared<ObjectPoolManager<TrackingPerson>>(1);
 
-    auto h4 = mp1->construct("2", 2);
+  {
+    auto first = pool->construct("One", 1);
+    assert(pool->size() == 0);
 
-    auto h5 = mp1->construct("2", 2);
+    auto second = pool->construct("Two", 2);
+    assert(second->name == "Two");
+    assert(pool->size() == 1);
+  }
 
-    auto h6 = mp1->construct("2", 2);
+  assert(pool->size() == 3);
+}
 
-    auto h7 = mp1->construct("2", 2);
+void test_handles_stored_in_containers() {
+  reset_tracking();
+  auto pool = std::make_shared<ObjectPoolManager<TrackingPerson>>(3);
 
-    auto h8 = mp1->construct("2", 2);
+  std::vector<ObjectPoolManager<TrackingPerson>::Handle> handles;
+  handles.reserve(3);
 
-    auto h9 = mp1->construct("2", 2);
+  for (int i = 0; i < 3; ++i) {
+    handles.emplace_back(pool->construct("User" + std::to_string(i), i));
+  }
 
-    auto h10 = mp1->construct("2", 2);
+  assert(pool->exhausted());
 
-    std::cout << mp1->exhausted() << std::endl;
+  handles.pop_back();
+  assert(pool->size() == 1);
 
-    std::cout << mp1->size() << std::endl;
+  handles.clear();
+  assert(pool->size() == 3);
+}
 
-    // TODO write `expand` method for expanding the size of free_list
-    auto h11 = mp1->construct("2", 2);
+void test_rejects_foreign_pointer() {
+  reset_tracking();
+  auto pool = std::make_shared<ObjectPoolManager<TrackingPerson>>(1);
 
-    std::cout << mp1->size() << std::endl;
+  auto fake = new TrackingPerson("Intruder", 99);
+  bool threw = false;
 
-  } // the deleter must be called
+  try {
+    pool->release(fake);
+  } catch (const std::invalid_argument &) {
+    threw = true;
+  }
 
-  // Checking if pool_pointers constraint is called
-  // Person *checkThrow = new Person("check1", 100);
-  // mp1->release(checkThrow);
+  delete fake;
+  assert(threw);
+}
 
+int main() {
+  test_basic_acquire_and_release();
+  test_expand_on_demand();
+  test_handles_stored_in_containers();
+  test_rejects_foreign_pointer();
+
+  std::cout << "All object pool tests passed" << std::endl;
   return 0;
-} // MemoryPoolManager is out-of-scope, it must be deleted
+}
