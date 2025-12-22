@@ -1,0 +1,9 @@
+ObjectPoolTest.BasicAcquireAndRelease 7 0.00132852
+ObjectPoolTest.ExpandOnDemand 0 0
+ObjectPoolTest.HandlesStoredInContainers 7 0.000830024
+ObjectPoolTest.RejectsForeignPointer 7 0.000819708
+ObjectPoolTest.HighChurnStressTest 7 0.000863571
+ObjectPoolTest.ConcurrentAccess 2 0.00275825
+ObjectPoolTest.NullptrHandling 7 0.000636625
+---
+ObjectPoolTest.ExpandOnDemand

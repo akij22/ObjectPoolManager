@@ -1,0 +1,47 @@
+{
+  "tests": 7,
+  "name": "AllTests",
+  "testsuites": [
+    {
+      "name": "ObjectPoolTest",
+      "tests": 7,
+      "testsuite": [
+        {
+          "name": "BasicAcquireAndRelease",
+          "file": "\/Users\/achillerossi\/Documents\/C++_tests\/memory_pool_mngr\/test_object_pool.cpp",
+          "line": 37
+        },
+        {
+          "name": "ExpandOnDemand",
+          "file": "\/Users\/achillerossi\/Documents\/C++_tests\/memory_pool_mngr\/test_object_pool.cpp",
+          "line": 55
+        },
+        {
+          "name": "HandlesStoredInContainers",
+          "file": "\/Users\/achillerossi\/Documents\/C++_tests\/memory_pool_mngr\/test_object_pool.cpp",
+          "line": 70
+        },
+        {
+          "name": "RejectsForeignPointer",
+          "file": "\/Users\/achillerossi\/Documents\/C++_tests\/memory_pool_mngr\/test_object_pool.cpp",
+          "line": 88
+        },
+        {
+          "name": "HighChurnStressTest",
+          "file": "\/Users\/achillerossi\/Documents\/C++_tests\/memory_pool_mngr\/test_object_pool.cpp",
+          "line": 97
+        },
+        {
+          "name": "ConcurrentAccess",
+          "file": "\/Users\/achillerossi\/Documents\/C++_tests\/memory_pool_mngr\/test_object_pool.cpp",
+          "line": 107
+        },
+        {
+          "name": "NullptrHandling",
+          "file": "\/Users\/achillerossi\/Documents\/C++_tests\/memory_pool_mngr\/test_object_pool.cpp",
+          "line": 127
+        }
+      ]
+    }
+  ]
+}

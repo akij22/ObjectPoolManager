@@ -1,0 +1,5 @@
+if(EXISTS "/Users/achillerossi/Documents/C++_tests/memory_pool_mngr/build/pool_tests[1]_tests.cmake")
+  include("/Users/achillerossi/Documents/C++_tests/memory_pool_mngr/build/pool_tests[1]_tests.cmake")
+else()
+  add_test(pool_tests_NOT_BUILT pool_tests_NOT_BUILT)
+endif()

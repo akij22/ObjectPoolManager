@@ -1,0 +1,2680 @@
+Start testing: Dec 22 21:25 CET
+----------------------------------------------------------
+1/7 Testing: ObjectPoolTest.BasicAcquireAndRelease
+1/7 Test: ObjectPoolTest.BasicAcquireAndRelease
+Command: "/Users/achillerossi/Documents/C++_tests/memory_pool_mngr/build/pool_tests" "--gtest_filter=ObjectPoolTest.BasicAcquireAndRelease" "--gtest_also_run_disabled_tests"
+Directory: /Users/achillerossi/Documents/C++_tests/memory_pool_mngr/build
+"ObjectPoolTest.BasicAcquireAndRelease" start time: Dec 22 21:25 CET
+Output:
+----------------------------------------------------------
+Running main() from /Users/achillerossi/Documents/C++_tests/memory_pool_mngr/build/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = ObjectPoolTest.BasicAcquireAndRelease
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from ObjectPoolTest
+[ RUN      ] ObjectPoolTest.BasicAcquireAndRelease
+Pointer address: 0xb4ec24000
+Pointer address: 0xb4ec24020
+DEBUG: Allocated 2 blocks
+DEBUG: Returning pointer with address: 0xb4ec24020
+DEBUG: Returning pointer with address: 0xb4ec24000
+The resource is just released and push back into free-list!
+The resource is just released and push back into free-list!
+DEBUG(DECONSTRUCTOR), deleting pointer to raw memory: 0xb4ec24000
+DEBUG(DECONSTRUCTOR), deleting pointer to raw memory: 0xb4ec24020
+[       OK ] ObjectPoolTest.BasicAcquireAndRelease (0 ms)
+[----------] 1 test from ObjectPoolTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"ObjectPoolTest.BasicAcquireAndRelease" end time: Dec 22 21:25 CET
+"ObjectPoolTest.BasicAcquireAndRelease" time elapsed: 00:00:00
+----------------------------------------------------------
+
+2/7 Testing: ObjectPoolTest.ExpandOnDemand
+2/7 Test: ObjectPoolTest.ExpandOnDemand
+Command: "/Users/achillerossi/Documents/C++_tests/memory_pool_mngr/build/pool_tests" "--gtest_filter=ObjectPoolTest.ExpandOnDemand" "--gtest_also_run_disabled_tests"
+Directory: /Users/achillerossi/Documents/C++_tests/memory_pool_mngr/build
+"ObjectPoolTest.ExpandOnDemand" start time: Dec 22 21:25 CET
+Output:
+----------------------------------------------------------
+Running main() from /Users/achillerossi/Documents/C++_tests/memory_pool_mngr/build/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = ObjectPoolTest.ExpandOnDemand
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from ObjectPoolTest
+[ RUN      ] ObjectPoolTest.ExpandOnDemand
+Pointer address: 0xca0c24000
+DEBUG: Allocated 1 blocks
+DEBUG: Returning pointer with address: 0xca0c24000
+DEBUG: before expand: 0
+DEBUG: after expand: 18446744073709551615
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Failed.
+"ObjectPoolTest.ExpandOnDemand" end time: Dec 22 21:25 CET
+"ObjectPoolTest.ExpandOnDemand" time elapsed: 00:00:00
+----------------------------------------------------------
+
+3/7 Testing: ObjectPoolTest.HandlesStoredInContainers
+3/7 Test: ObjectPoolTest.HandlesStoredInContainers
+Command: "/Users/achillerossi/Documents/C++_tests/memory_pool_mngr/build/pool_tests" "--gtest_filter=ObjectPoolTest.HandlesStoredInContainers" "--gtest_also_run_disabled_tests"
+Directory: /Users/achillerossi/Documents/C++_tests/memory_pool_mngr/build
+"ObjectPoolTest.HandlesStoredInContainers" start time: Dec 22 21:25 CET
+Output:
+----------------------------------------------------------
+Running main() from /Users/achillerossi/Documents/C++_tests/memory_pool_mngr/build/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = ObjectPoolTest.HandlesStoredInContainers
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from ObjectPoolTest
+[ RUN      ] ObjectPoolTest.HandlesStoredInContainers
+Pointer address: 0x75ec24000
+Pointer address: 0x75ec24020
+Pointer address: 0x75ec24040
+DEBUG: Allocated 3 blocks
+DEBUG: Returning pointer with address: 0x75ec24040
+DEBUG: Returning pointer with address: 0x75ec24020
+DEBUG: Returning pointer with address: 0x75ec24000
+The resource is just released and push back into free-list!
+The resource is just released and push back into free-list!
+The resource is just released and push back into free-list!
+DEBUG(DECONSTRUCTOR), deleting pointer to raw memory: 0x75ec24000
+DEBUG(DECONSTRUCTOR), deleting pointer to raw memory: 0x75ec24020
+DEBUG(DECONSTRUCTOR), deleting pointer to raw memory: 0x75ec24040
+[       OK ] ObjectPoolTest.HandlesStoredInContainers (0 ms)
+[----------] 1 test from ObjectPoolTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"ObjectPoolTest.HandlesStoredInContainers" end time: Dec 22 21:25 CET
+"ObjectPoolTest.HandlesStoredInContainers" time elapsed: 00:00:00
+----------------------------------------------------------
+
+4/7 Testing: ObjectPoolTest.RejectsForeignPointer
+4/7 Test: ObjectPoolTest.RejectsForeignPointer
+Command: "/Users/achillerossi/Documents/C++_tests/memory_pool_mngr/build/pool_tests" "--gtest_filter=ObjectPoolTest.RejectsForeignPointer" "--gtest_also_run_disabled_tests"
+Directory: /Users/achillerossi/Documents/C++_tests/memory_pool_mngr/build
+"ObjectPoolTest.RejectsForeignPointer" start time: Dec 22 21:25 CET
+Output:
+----------------------------------------------------------
+Running main() from /Users/achillerossi/Documents/C++_tests/memory_pool_mngr/build/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = ObjectPoolTest.RejectsForeignPointer
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from ObjectPoolTest
+[ RUN      ] ObjectPoolTest.RejectsForeignPointer
+Pointer address: 0xbccc24000
+DEBUG: Allocated 1 blocks
+DEBUG(DECONSTRUCTOR), deleting pointer to raw memory: 0xbccc24000
+[       OK ] ObjectPoolTest.RejectsForeignPointer (0 ms)
+[----------] 1 test from ObjectPoolTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"ObjectPoolTest.RejectsForeignPointer" end time: Dec 22 21:25 CET
+"ObjectPoolTest.RejectsForeignPointer" time elapsed: 00:00:00
+----------------------------------------------------------
+
+5/7 Testing: ObjectPoolTest.HighChurnStressTest
+5/7 Test: ObjectPoolTest.HighChurnStressTest
+Command: "/Users/achillerossi/Documents/C++_tests/memory_pool_mngr/build/pool_tests" "--gtest_filter=ObjectPoolTest.HighChurnStressTest" "--gtest_also_run_disabled_tests"
+Directory: /Users/achillerossi/Documents/C++_tests/memory_pool_mngr/build
+"ObjectPoolTest.HighChurnStressTest" start time: Dec 22 21:25 CET
+Output:
+----------------------------------------------------------
+Running main() from /Users/achillerossi/Documents/C++_tests/memory_pool_mngr/build/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = ObjectPoolTest.HighChurnStressTest
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from ObjectPoolTest
+[ RUN      ] ObjectPoolTest.HighChurnStressTest
+Pointer address: 0x798c24000
+Pointer address: 0x798c24020
+Pointer address: 0x798c24040
+Pointer address: 0x798c24060
+Pointer address: 0x798c24080
+Pointer address: 0x798c240a0
+Pointer address: 0x798c240c0
+Pointer address: 0x798c240e0
+Pointer address: 0x798c24100
+Pointer address: 0x798c24120
+DEBUG: Allocated 10 blocks
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x798c24120
+The resource is just released and push back into free-list!
+DEBUG(DECONSTRUCTOR), deleting pointer to raw memory: 0x798c24000
+DEBUG(DECONSTRUCTOR), deleting pointer to raw memory: 0x798c24020
+DEBUG(DECONSTRUCTOR), deleting pointer to raw memory: 0x798c24040
+DEBUG(DECONSTRUCTOR), deleting pointer to raw memory: 0x798c24060
+DEBUG(DECONSTRUCTOR), deleting pointer to raw memory: 0x798c24080
+DEBUG(DECONSTRUCTOR), deleting pointer to raw memory: 0x798c240a0
+DEBUG(DECONSTRUCTOR), deleting pointer to raw memory: 0x798c240c0
+DEBUG(DECONSTRUCTOR), deleting pointer to raw memory: 0x798c240e0
+DEBUG(DECONSTRUCTOR), deleting pointer to raw memory: 0x798c24100
+DEBUG(DECONSTRUCTOR), deleting pointer to raw memory: 0x798c24120
+[       OK ] ObjectPoolTest.HighChurnStressTest (1 ms)
+[----------] 1 test from ObjectPoolTest (1 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (1 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"ObjectPoolTest.HighChurnStressTest" end time: Dec 22 21:25 CET
+"ObjectPoolTest.HighChurnStressTest" time elapsed: 00:00:00
+----------------------------------------------------------
+
+6/7 Testing: ObjectPoolTest.ConcurrentAccess
+6/7 Test: ObjectPoolTest.ConcurrentAccess
+Command: "/Users/achillerossi/Documents/C++_tests/memory_pool_mngr/build/pool_tests" "--gtest_filter=ObjectPoolTest.ConcurrentAccess" "--gtest_also_run_disabled_tests"
+Directory: /Users/achillerossi/Documents/C++_tests/memory_pool_mngr/build
+"ObjectPoolTest.ConcurrentAccess" start time: Dec 22 21:25 CET
+Output:
+----------------------------------------------------------
+Running main() from /Users/achillerossi/Documents/C++_tests/memory_pool_mngr/build/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = ObjectPoolTest.ConcurrentAccess
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from ObjectPoolTest
+[ RUN      ] ObjectPoolTest.ConcurrentAccess
+Pointer address: 0x7e2c24000
+Pointer address: 0x7e2c24020
+Pointer address: 0x7e2c24040
+Pointer address: 0x7e2c24060
+Pointer address: 0x7e2c24080
+Pointer address: 0x7e2c240a0
+Pointer address: 0x7e2c240c0
+Pointer address: 0x7e2c240e0
+Pointer address: 0x7e2c24100
+Pointer address: 0x7e2c24120
+Pointer address: 0x7e2c24140
+Pointer address: 0x7e2c24160
+Pointer address: 0x7e2c24180
+Pointer address: 0x7e2c241a0
+Pointer address: 0x7e2c241c0
+Pointer address: 0x7e2c241e0
+Pointer address: 0x7e2c24200
+Pointer address: 0x7e2c24220
+Pointer address: 0x7e2c24240
+Pointer address: 0x7e2c24260
+DEBUG: Allocated 20 blocks
+DEBUG: Returning pointer with address: 0x7e2c24260
+DEBUG: Returning pointer with address: 0x7e2c24240
+The resource is just released and push back into free-list!DEBUG: Returning pointer with address: 
+DEBUG: Returning pointer with address: 0x7e2c24220
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x7e2c24240
+0x7e2c24260
+The resource is just released and push back into free-list!
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x7e2c24240
+DEBUG: Returning pointer with address: 0x7e2c24200
+DEBUG: Returning pointer with address: 0x7e2c24220
+The resource is just released and push back into free-list!
+The resource is just released and push back into free-list!DEBUG: Returning pointer with address: 0x7e2c24260
+
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x7e2c24220
+DEBUG: Returning pointer with address: 0x7e2c24260
+The resource is just released and push back into free-list!The resource is just released and push back into free-list!The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x7e2c24220
+
+DEBUG: Returning pointer with address: The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x7e2c24200
+The resource is just released and push back into free-list!
+0x7e2c24260DEBUG: Returning pointer with address: 0x7e2c24220
+
+DEBUG: Returning pointer with address: 0x7e2c24240
+
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x7e2c24240
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x7e2c24220
+The resource is just released and push back into free-list!
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: DEBUG: Returning pointer with address: 0x7e2c24200The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x7e2c24260
+
+0x7e2c24220
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x7e2c24240
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x7e2c24260
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x7e2c24240
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x7e2c24220
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x7e2c24240
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x7e2c24220
+The resource is just released and push back into free-list!The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: The resource is just released and push back into free-list!0x7e2c24240
+
+DEBUG: Returning pointer with address: 0x7e2c24260
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 
+DEBUG: Returning pointer with address: 0x7e2c24200
+0x7e2c24220
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x7e2c24200
+The resource is just released and push back into free-list!
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x7e2c24220
+0x7e2c24260
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: DEBUG: Returning pointer with address: 0x7e2c242400x7e2c24200
+
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x7e2c24220
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x7e2c24260
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x7e2c24240
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x7e2c24260
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x7e2c24200
+The resource is just released and push back into free-list!
+The resource is just released and push back into free-list!
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x7e2c24200
+DEBUG: Returning pointer with address: 0x7e2c24240
+DEBUG: Returning pointer with address: 0x7e2c24260
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x7e2c24240
+The resource is just released and push back into free-list!
+The resource is just released and push back into free-list!DEBUG: Returning pointer with address: 
+DEBUG: Returning pointer with address: 0x7e2c24200
+0x7e2c24260
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x7e2c24200
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x7e2c24200
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x7e2c24260
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x7e2c24200
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x7e2c24260
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x7e2c24200
+0x7e2c24240
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x7e2c24200
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x7e2c24260
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x7e2c24240
+The resource is just released and push back into free-list!
+The resource is just released and push back into free-list!
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: DEBUG: Returning pointer with address: 0x7e2c24240
+DEBUG: Returning pointer with address: 0x7e2c24260
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x7e2c24240
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x7e2c24260
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x7e2c24200
+0x7e2c24220
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x7e2c24260
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x7e2c24200
+The resource is just released and push back into free-list!
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x7e2c24240
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x7e2c24240
+0x7e2c24200
+DEBUG: Returning pointer with address: 0x7e2c24260
+The resource is just released and push back into free-list!
+The resource is just released and push back into free-list!
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x7e2c24260
+DEBUG: Returning pointer with address: 0x7e2c24200
+DEBUG: Returning pointer with address: 0x7e2c24240
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x7e2c24220
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x7e2c24260
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x7e2c24200
+The resource is just released and push back into free-list!
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x7e2c24220
+DEBUG: Returning pointer with address: 0x7e2c24260
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x7e2c24240
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x7e2c24260The resource is just released and push back into free-list!The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x7e2c24240
+
+DEBUG: Returning pointer with address: 0x7e2c24220
+
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x7e2c24240
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x7e2c24220
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x7e2c24260
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x7e2c24240
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x7e2c24260
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x7e2c24240
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x7e2c24220
+The resource is just released and push back into free-list!
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x7e2c24260
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x7e2c24200
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x7e2c24260
+DEBUG: Returning pointer with address: 0x7e2c24240
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x7e2c24200
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x7e2c24240
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x7e2c24220
+0x7e2c24260
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x7e2c24240
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x7e2c24220
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x7e2c24260
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x7e2c24240
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x7e2c24220
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x7e2c24240
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x7e2c24200
+0x7e2c24260
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x7e2c24240
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x7e2c24260
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x7e2c24240The resource is just released and push back into free-list!The resource is just released and push back into free-list!
+
+DEBUG: Returning pointer with address: 0x7e2c24260
+
+DEBUG: Returning pointer with address: The resource is just released and push back into free-list!0x7e2c24220The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x7e2c24240
+The resource is just released and push back into free-list!
+
+
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x7e2c24220DEBUG: Returning pointer with address: 
+The resource is just released and push back into free-list!0x7e2c24260
+DEBUG: Returning pointer with address: 
+DEBUG: Returning pointer with address: 0x7e2c24220
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x7e2c24260
+0x7e2c24240
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x7e2c24220
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x7e2c24260
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x7e2c24240
+The resource is just released and push back into free-list!
+The resource is just released and push back into free-list!
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x7e2c24240DEBUG: Returning pointer with address: 
+DEBUG: Returning pointer with address: 0x7e2c24260
+0x7e2c24220
+The resource is just released and push back into free-list!
+The resource is just released and push back into free-list!
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: DEBUG: Returning pointer with address: 0x7e2c24220
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x7e2c24200
+0x7e2c24260The resource is just released and push back into free-list!
+
+DEBUG: Returning pointer with address: 0x7e2c24240
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x7e2c24260The resource is just released and push back into free-list!
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x7e2c24240
+DEBUG: Returning pointer with address: 0x7e2c24220
+DEBUG: Returning pointer with address: 0x7e2c24200
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x7e2c24220
+The resource is just released and push back into free-list!
+The resource is just released and push back into free-list!DEBUG: Returning pointer with address: 0x7e2c24220
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x7e2c24200
+
+DEBUG: Returning pointer with address: 0x7e2c24240
+
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x7e2c24240
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x7e2c24260
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x7e2c24220
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x7e2c24240
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x7e2c24200
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x7e2c24220
+The resource is just released and push back into free-list!
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x7e2c24200
+DEBUG: Returning pointer with address: 0x7e2c24220
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x7e2c24260
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x7e2c24220
+The resource is just released and push back into free-list!
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x7e2c24200
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x7e2c24220
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x7e2c24200
+The resource is just released and push back into free-list!
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: DEBUG: Returning pointer with address: 0x7e2c24220
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x7e2c24200
+0x7e2c24260
+The resource is just released and push back into free-list!
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x7e2c241e0
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x7e2c24260
+The resource is just released and push back into free-list!DEBUG: Returning pointer with address: The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x7e2c241e0
+
+DEBUG: Returning pointer with address: 0x7e2c24260
+DEBUG: Returning pointer with address: 0x7e2c24240
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x7e2c241e0
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x7e2c24240
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x7e2c241e0
+0x7e2c24200
+The resource is just released and push back into free-list!
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x7e2c241e0
+DEBUG: Returning pointer with address: 0x7e2c24240
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x7e2c24240
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: The resource is just released and push back into free-list!0x7e2c241e0
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: The resource is just released and push back into free-list!
+
+DEBUG: Returning pointer with address: 0x7e2c24260
+DEBUG: Returning pointer with address: The resource is just released and push back into free-list!0x7e2c24240
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x7e2c24260
+0x7e2c24200
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x7e2c24240
+
+The resource is just released and push back into free-list!DEBUG: Returning pointer with address: 0x7e2c24240
+
+DEBUG: Returning pointer with address: 0x7e2c24200
+The resource is just released and push back into free-list!
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x7e2c24240
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x7e2c24260
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x7e2c24260
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x7e2c241e0
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x7e2c24240
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x7e2c24260
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x7e2c241e0
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x7e2c24240
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x7e2c24260
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x7e2c241e0
+DEBUG: Returning pointer with address: 0x7e2c24200
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x7e2c24260The resource is just released and push back into free-list!
+The resource is just released and push back into free-list!
+The resource is just released and push back into free-list!
+
+DEBUG: Returning pointer with address: DEBUG: Returning pointer with address: 0x7e2c241e0
+The resource is just released and push back into free-list!
+The resource is just released and push back into free-list!
+0x7e2c24240
+DEBUG: Returning pointer with address: 0x7e2c241e0
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x7e2c24240
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x7e2c241e0
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x7e2c24240
+DEBUG: Returning pointer with address: 0x7e2c24200
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x7e2c241e0
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x7e2c24200
+The resource is just released and push back into free-list!
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x7e2c241e0
+The resource is just released and push back into free-list!
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x7e2c241e0
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x7e2c241e0
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x7e2c241e0
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x7e2c241e0
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x7e2c241e0
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x7e2c241e0
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x7e2c241e0
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x7e2c241e0
+The resource is just released and push back into free-list!
+DEBUG: Returning pointer with address: 0x7e2c241e0
+The resource is just released and push back into free-list!
+DEBUG(DECONSTRUCTOR), deleting pointer to raw memory: 0x7e2c24000
+DEBUG(DECONSTRUCTOR), deleting pointer to raw memory: 0x7e2c24020
+DEBUG(DECONSTRUCTOR), deleting pointer to raw memory: 0x7e2c24040
+DEBUG(DECONSTRUCTOR), deleting pointer to raw memory: 0x7e2c24060
+DEBUG(DECONSTRUCTOR), deleting pointer to raw memory: 0x7e2c24080
+DEBUG(DECONSTRUCTOR), deleting pointer to raw memory: 0x7e2c240a0
+DEBUG(DECONSTRUCTOR), deleting pointer to raw memory: 0x7e2c240c0
+DEBUG(DECONSTRUCTOR), deleting pointer to raw memory: 0x7e2c240e0
+DEBUG(DECONSTRUCTOR), deleting pointer to raw memory: 0x7e2c24100
+DEBUG(DECONSTRUCTOR), deleting pointer to raw memory: 0x7e2c24120
+DEBUG(DECONSTRUCTOR), deleting pointer to raw memory: 0x7e2c24140
+DEBUG(DECONSTRUCTOR), deleting pointer to raw memory: 0x7e2c24160
+DEBUG(DECONSTRUCTOR), deleting pointer to raw memory: 0x7e2c24180
+DEBUG(DECONSTRUCTOR), deleting pointer to raw memory: 0x7e2c241a0
+DEBUG(DECONSTRUCTOR), deleting pointer to raw memory: 0x7e2c241c0
+DEBUG(DECONSTRUCTOR), deleting pointer to raw memory: 0x7e2c24260
+DEBUG(DECONSTRUCTOR), deleting pointer to raw memory: 0x7e2c24240
+DEBUG(DECONSTRUCTOR), deleting pointer to raw memory: 0x7e2c24200
+DEBUG(DECONSTRUCTOR), deleting pointer to raw memory: 0x7e2c241e0
+[       OK ] ObjectPoolTest.ConcurrentAccess (1 ms)
+[----------] 1 test from ObjectPoolTest (1 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (1 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"ObjectPoolTest.ConcurrentAccess" end time: Dec 22 21:25 CET
+"ObjectPoolTest.ConcurrentAccess" time elapsed: 00:00:00
+----------------------------------------------------------
+
+7/7 Testing: ObjectPoolTest.NullptrHandling
+7/7 Test: ObjectPoolTest.NullptrHandling
+Command: "/Users/achillerossi/Documents/C++_tests/memory_pool_mngr/build/pool_tests" "--gtest_filter=ObjectPoolTest.NullptrHandling" "--gtest_also_run_disabled_tests"
+Directory: /Users/achillerossi/Documents/C++_tests/memory_pool_mngr/build
+"ObjectPoolTest.NullptrHandling" start time: Dec 22 21:25 CET
+Output:
+----------------------------------------------------------
+Running main() from /Users/achillerossi/Documents/C++_tests/memory_pool_mngr/build/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = ObjectPoolTest.NullptrHandling
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from ObjectPoolTest
+[ RUN      ] ObjectPoolTest.NullptrHandling
+Pointer address: 0x782c24000
+DEBUG: Allocated 1 blocks
+DEBUG(DECONSTRUCTOR), deleting pointer to raw memory: 0x782c24000
+[       OK ] ObjectPoolTest.NullptrHandling (0 ms)
+[----------] 1 test from ObjectPoolTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"ObjectPoolTest.NullptrHandling" end time: Dec 22 21:25 CET
+"ObjectPoolTest.NullptrHandling" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Dec 22 21:25 CET
