@@ -2,6 +2,8 @@
 /build/
 /build-*/
 /cmake-build-*/
+/Testing/
+test.dSYM/Contents
 
 # CMake generated
 CMakeCache.txt
@@ -17,6 +19,7 @@ compile_commands.json
 .cache/
 .clangd/
 .clangd_cache/
+.cache/clangd/index
 
 # Editors / OS
 *.swp
@@ -28,11 +31,13 @@ compile_commands.json
 Makefile.backup
 
 
-# Test files
+# Test files + other files
 
 testObjPool.cpp
 test_object_pool.cpp
 test.cpp
 expand_on_demand_test.cpp
+TODO.md
+AGENTS.md
 
 
