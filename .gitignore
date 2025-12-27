@@ -1,10 +1,29 @@
-MemoryPoolManager.cpp
-MemoryPoolManager.hh
-Makefile.backup
-testObjPool.cpp
-TODO.md
-expand_on_demand_test.cpp
-build/
-compile_commands.json
+# Build directories
+/build/
+/build-*/
+/cmake-build-*/
+
+# CMake generated
 CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+Makefile
+CTestTestfile.cmake
+Testing/
+_compile_commands.json
+
+# Clangd / tooling
+compile_commands.json
 .cache/
+.clangd/
+.clangd_cache/
+
+# Editors / OS
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Backups
+Makefile.backup
+
