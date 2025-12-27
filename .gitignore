@@ -41,5 +41,8 @@ expand_on_demand_test.cpp
 TODO.md
 AGENTS.md
 test.cpp
+MemoryPoolManager.cpp
+MemoryPoolManager.hh
+Makefile.backup
 
 
