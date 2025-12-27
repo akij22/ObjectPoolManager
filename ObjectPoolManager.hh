@@ -267,7 +267,7 @@ template <typename T> void ObjectPoolManager<T>::expand(size_type dim) {
 
   // Expand the free_list with totalBlocks * 2
   if (dim == 0)
-    dim = stats.freeBlocks * 2;
+    dim = stats.totalBlocks * 2;
 
   std::cout << "DEBUG: before expand: " << stats.freeBlocks << std::endl;
   for (size_type i = 0; i < dim; i++) {
