@@ -13,6 +13,7 @@ Makefile
 CTestTestfile.cmake
 Testing/
 _compile_commands.json
+CMakeLists.txt
 
 # Clangd / tooling
 compile_commands.json
