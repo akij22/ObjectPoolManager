@@ -34,8 +34,6 @@ Makefile.backup
 
 # Test files + other files
 
-testObjPool.cpp
-test_object_pool.cpp
 test.cpp
 expand_on_demand_test.cpp
 TODO.md
