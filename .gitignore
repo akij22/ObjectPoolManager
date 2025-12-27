@@ -42,5 +42,6 @@ test.cpp
 MemoryPoolManager.cpp
 MemoryPoolManager.hh
 Makefile.backup
+memorypoolmanager.hh.pch
 
 

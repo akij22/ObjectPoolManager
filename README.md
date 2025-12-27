@@ -86,3 +86,6 @@ Because `ObjectPoolManager` inherits from `std::enable_shared_from_this`, every 
 ## Contributing
 Open issues or PRs for allocator tweaks, docs, or new tests. Follow Conventional Commits (`feat(object-pool): ...`, `fix: ...`) and document validation commands (build, run, sanitizer) in every PR. Ensure any `Handle` you acquire in samples or specs is released (or naturally destroyed) before asking for review to keep ownership semantics airtight.
 
+
+## Project Status
+This project is still building and is not the final version.
