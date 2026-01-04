@@ -202,39 +202,6 @@ template <typename T> ObjectPoolManager<T>::~ObjectPoolManager() {
   }
 }
 
-// template <typename T>
-// typename ObjectPoolManager<T>::Handle ObjectPoolManager<T>::acquire() {
-//
-//   assert(!this->is_empty());
-//
-//   // Assign to `ptr` the last element of the free list
-//   T *ptr = this->free_list.back();
-//
-//   // Remove from the list with all blocks available the last one
-//   this->free_list.pop_back();
-//
-//   // Create a new CustomDeleter for each resource given by `.acquire()`
-//   // Every new resource must have a own custom deleter with
-//   PoolCustomDeleter customD;
-//
-//   /* shared_from_this = create a new shared_ptr that is linked to the same
-//    *  object of 'this'
-//    * this shared pointer is memorize into a weak_ptr of the Deleter
-//    * The `shared_from_this()` return a shared_ptr() that points to the same
-//    * object pointed by `this`
-//    customD.weak_ptr_pool = this->shared_from_this();
-//
-//    Return a new Handle with the ptr wrapped and a new custom deleter
-//    return Handle(ptr, customD);
-//
-//   */
-// }
-//
-// The following function is called when the std::unique_ptr acquire by
-// the user become out-of-scope
-//
-// This metod must be used only by PoolCustomDeleter
-
 template <typename T> void ObjectPoolManager<T>::release(T *ptr) {
 
   // If the ptr parameter is not found into pool_pointers
